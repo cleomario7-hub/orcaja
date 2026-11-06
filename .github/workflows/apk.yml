@@ -61,7 +61,8 @@ jobs:
                     PrintManager pm = (PrintManager) getActivity().getSystemService(Context.PRINT_SERVICE);
                     PrintDocumentAdapter adapter = wv.createPrintDocumentAdapter(title);
                     PrintAttributes attrs = new PrintAttributes.Builder()
-                        .setMediaSize(PrintAttributes.MediaSize.ISO_A4).build();
+                        .setMediaSize(PrintAttributes.MediaSize.ISO_A4)
+                        .setMinMargins(new PrintAttributes.Margins(590, 590, 590, 590)).build();
                     pm.print(title, adapter, attrs);
                     call.resolve();
                   } catch (Exception e) {
